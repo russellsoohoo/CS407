@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SAAC Scheduling App</title>
+</head>
+<body>
+    <h1>Welcome to my app</h1>
+    <form action="{% url 'admin:index' %}">
+        <button type="submit">Admin Login</button>
+    </form>
+    <ul>
+        <p>hello</p>
+        {% for event in events %}
+            <li>{{ event.name }}: {{ event.description }}: {{ event.date }}: {{ event.subcommittee }}</li>
+        {% empty %}
+            <li>No posts available</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
