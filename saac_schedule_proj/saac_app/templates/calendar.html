@@ -1,7 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+    <link href="{% static 'calendar.css' %}" rel="stylesheet">
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
 </head>
 <body>
@@ -13,8 +15,10 @@
             var calendarEl = document.getElementById('calendar');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                events: 'api/events'
+                initialView: 'dayGridMonth', // view calendar in month view
+                showNonCurrentDates: false, // only display dates in the current month
+                height: 'auto', // set auto height
+                events: 'api/events' // get all events
             });
 
             calendar.render();
