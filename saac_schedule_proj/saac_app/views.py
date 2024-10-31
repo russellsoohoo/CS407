@@ -16,9 +16,11 @@ def events_api(request):
 
     for event in events:
         events_list.append({
-            "name": event.name,
+            "title": event.title,
             "desc": event.description,
-            "date": event.date.isoformat(),
+            "start": event.start.isoformat(),
+            "end": event.end.isoformat(),
+            "loc": event.location,
             "subc": event.subcommittee,
         })
 
