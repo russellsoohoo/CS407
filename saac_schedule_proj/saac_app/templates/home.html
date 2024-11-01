@@ -12,6 +12,8 @@
         <p>hello</p>
         {% for event in events %}
             <li>{{ event.title }}: {{ event.description }}: {{ event.start }}: {{ event.subcommittee }}</li>
+            <li>Start: {{ event.start }}</li>
+            <li>End: {{ event.end }}</li>
         {% empty %}
             <li>No posts available</li>
         {% endfor %}

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "saac-calendar",
+  "private_key_id": "acf190b492e516878fa284fa01965e010e73f31b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC1Pc2yjuiC5Tzb\nYs1dS1a9v0DUPW6K8q44pqjt1txtsfPqF8dbcLiQ03ltS0f7zdETVJHiW/63fJv8\n69zT2v7MhjYYUapVzGJ7P3GtvRg0hfkGY8Azxj/WPyA2EIk7twNLy9orNNI55Bbw\naBsIWPkawGa+Ut1iX4FTJdYivaK55mNtj4gay/pGWfsPTWMw/YVUMT55ucBZh/+7\n56RkbvsSxs2B8z0izNU+KNvprxe51qHs4y6pX5RTiTbeRa8HppOo7ya0Ky4Kkbam\nvuFcitTlcMkbqPaNISImMsu4nuDxN6RUe5XKBLPyW5j7zNQcD37wPHHhsnsLveu+\nHxSsJTTzAgMBAAECgf9wkkTbLXvlr80iggsuCO29ZQXKt30nzres4ORWzl8SBoaV\nrXC3j0gokhVcfNfBfDo+q2SVs0VMXHqZbwY1f4lY11QWQiQQ7nGcH26Dx8/d8zrM\nPiNBUd4J69sx/L1pdbilVAtZXIZpavBGh4LJaUPEBddbADOHHpD5OYFxra+ZR71l\nijSFcaCulgUaVwbNe77nJc8j80tLsS3m8JEfZs7PczsAmtoBCWi8n2dP6CQkHbxR\n8sjfq+tZP0uLIYf+r0OaCAzSdLeXKs8ajjFpj67YdgGHUWrzOFnupgsT7fSEkL7C\nKMiNELiyXw2EdhHAwXMIX38jXsZ6mZvXLsjzE0ECgYEA28A+n1rZfbHcQKaRHHBm\nPDTwcxCIQ68Mg6Ve6tBoOvfBwbEADC5VdGxfWDklY+T5AoTgsvhnFTiXhWVOHr4q\n4gtvpgzxu2zhBJ4xnb4+tBS6HLuEn5Yqmee1PuVjKcBcHwP+H9ZbI9Y0rVtIbkhW\nmsiMCokVwmmqWknoaqvlRwcCgYEA0yNbzDxUI47JzpscksGaa/2LYFvUuWQBfTAa\nL18NoZv9t8SR9Rkrp5O109jyL54oie1EItE2KXwcEVzmRid6iVzknHJlgadrNeX3\nnxlJhMFYdq/ZdjE2OSgIcrrnagmLUJR8maNcBWA4t1isgHzdYj1K7troGF7mBK/0\nSzXB27UCgYEAkxpjEUvAserBNSoLk80OMxmBKJWVkjF5IBswqeGvFGJL+vwguwa9\nP71YKfe/NtrNckk/Ha85WjRTAgIpxFyq2jyrla2umDevfebj8eOrl+MUHy3L/wSI\nKhS4+IyX0Bgr0rtafzeANUIsayvjFagpCV5cmKThww328o/tHJNLXTsCgYBmNrTn\nH8Gf4S1jfwYLKfzHENybjnliMr7hyxqyGjMwLKNchqYeYMwYeVLKNzmvwcJgW2Pj\n8yJkXPf9k9rK1avlufnWny7y4Ijvc+A3vncv9KYN9z2wkUxtySql2EPVur8eCHR1\nsHcJBzcN07jXDxvhxkhzb7hyq+ZxGHmMu36ZDQKBgQCn/41w1zPimD18080odVai\njMM85ILNOqdf+WVBVZqRYwRGUBdh7IjrdtCueZyPji692u02xnCmRarZknpmr49l\nHn2KN/CE7lL1msGLrqgi33/LYZ2cBRwS62Yv7LOqgqrzvDVunJX7whZJZw9ODtBF\nQ84Rj8xGXNbx941Nx8X2YQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ehzrq@saac-calendar.iam.gserviceaccount.com",
+  "client_id": "107101231081500420252",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ehzrq%40saac-calendar.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
