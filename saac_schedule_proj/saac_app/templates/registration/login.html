@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login</h1>
+    {# Display errors if the form submission fails #}
+    {% if form.errors %}
+        <p style="color: red;">Invalid username or password. Please try again.</p>
+    {% endif %}
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>Your account does not have access to this page. Please log in with an authorized account.</p>
+        {% else %}
+            <p>You must log in to access this page.</p>
+        {% endif %}
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+            </tr>
+        </table>
+        <input type="hidden" name="next" value="{{ next }}">
+        <button type="submit">Log In</button>
+  </form>
+
+  <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+  <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>.</p>
+</body>
+</html>

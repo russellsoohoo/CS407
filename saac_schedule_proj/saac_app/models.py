@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 
 class Event(models.Model):
@@ -21,3 +22,20 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class CustomUser(AbstractUser):
+    username = None  # remove username field
+    email = models.EmailField(unique=True)  # use email as username
+
+    first_name = models.CharField(max_length=30)  # first name
+    last_name = models.CharField(max_length=30)  # last name
+    sport = models.CharField(max_length=20)  # sport
+    grad_year = models.PositiveIntegerField(default=0000)  # graduation year
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'sport', 'grad_year']
+
+    def __str__(self):
+        return self.email

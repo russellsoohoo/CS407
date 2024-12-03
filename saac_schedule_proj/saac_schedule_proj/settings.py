@@ -10,13 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import auth
-
-cred = credentials.Certificate('firebase_config.json')
-firebase_admin.initialize_app(cred)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -44,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'saac_app', # install saac_app
+    'saac_app',  # install saac_app
 ]
 
 MIDDLEWARE = [
@@ -129,3 +124,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Use custom user model
+AUTH_USER_MODEL = 'saac_app.CustomUser'
