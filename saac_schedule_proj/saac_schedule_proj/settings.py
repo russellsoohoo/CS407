@@ -125,6 +125,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # Use custom user model
 AUTH_USER_MODEL = 'saac_app.CustomUser'
+
+# Redirect login to calendar page
+LOGIN_REDIRECT_URL = '/calendar'
+
+# Redirect logout to login page
+LOGOUT_REDIRECT_URL = '/login'

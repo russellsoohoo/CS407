@@ -19,6 +19,17 @@
                 <td>{{ form.password1 }}</td>
             </tr>
             <tr>
+                <td>Password Requirements:</td>
+                <td>
+                    <ul>
+                        <li>At least 8 characters long</li>
+                        <li>Cannot be a commonly used password</li>
+                        <li>Cannot be entirely numeric</li>
+                        <li>Should not be similar to personal information (like email or name)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
                 <td>{{ form.password2.label_tag }}</td>
                 <td>{{ form.password2 }}</td>
             </tr>

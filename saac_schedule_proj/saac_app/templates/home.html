@@ -8,6 +8,14 @@
     <form action="{% url 'admin:index' %}">
         <button type="submit">Admin Login</button>
     </form>
+    <p></p>
+    <form action="{% url 'login' %}">
+        <button type="submit">Login Page</button>
+    </form>
+    <p></p>
+    <form action="{% url 'calendar' %}">
+        <button type="submit">Calendar Page</button>
+    </form>
     <ul>
         <p>hello</p>
         {% for event in events %}

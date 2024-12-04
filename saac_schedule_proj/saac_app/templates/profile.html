@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+</head>
+<body>
+    <h1>This is the User's profile page</h1>
+    <form method="post" action="{% url 'calendar' %}">
+        {% csrf_token %}
+        <button type="submit">View Calendar</button>
+    </form>
+    <p></p>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Log Out</button>
+    </form>
+
+    <h2>Your Registered Events</h2>
+    <ul>
+        {% for event in user.registered_events.all %}
+            <li>{{ event.name }} on {{ event.date }} at {{ event.time }}</li>
+        {% empty %}
+            <p>You have not registered for any events.</p>
+        {% endfor %}
+    </ul>
+
+    <h2>Update Your Information</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        <button type="submit" name="update_info">Update Info</button>
+    </form>
+
+    <h2>Change Your Password</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ password_form.as_p }}
+        <button type="submit" name="change_password">Change Password</button>
+    </form>
+</body>
+</html>

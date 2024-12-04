@@ -8,10 +8,13 @@
 </head>
 <body>
     <h1>SAAC Event Calendar</h1>
+    <form action="{% url 'profile' %}">
+        <button type="submit">Profile</button>
+    </form>
     <div id='calendar'></div>
 
     <div class="modal-overlay" id="modalOverlay">
-        <div id="eventModal" class="modal" style="display: none;">
+        <div id="eventModal" class="modal" style="">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2 id="modalTitle"></h2>
@@ -20,6 +23,7 @@
                 <p><strong>Start:</strong> <span id="modalStart"></span></p>
                 <p><strong>End:</strong> <span id="modalEnd"></span></p>
                 <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+
             </div>
         </div>
     </div>
