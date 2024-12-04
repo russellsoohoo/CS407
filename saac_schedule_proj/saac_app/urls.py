@@ -1,9 +1,10 @@
 from django.urls import path, include
 from . import views
 from django.contrib.auth.views import LogoutView
+from django.shortcuts import redirect
 
 urlpatterns = [
-    path('', views.calendar, name='home'),
+    path('', lambda request: redirect('calendar')),
     path('calendar/', views.calendar, name='calendar'),
     path('calendar/api/events/', views.events_api, name='events_api'),
     path('profile/', views.profile, name='profile'),
