@@ -78,7 +78,7 @@ def events_api(request):
             "end": event.end.isoformat(),
             "loc": event.location,
             "subc": event.subcommittee,
-            # "registered_users": event.registered_users
+            "registered_users": list(event.registered_users.values_list('id', flat=True)),  # Convert to a list of IDs
         })
 
     return JsonResponse(events_list, safe=False)
@@ -91,6 +91,18 @@ def register_for_event(request, event_id):
         messages.warning(request, "You are already registered for this event.")
     else:
         event.registered_users.add(request.user)
-        messages.success(request, f"You have successfully registered for {event.name}.")
+        messages.success(request, f"You have successfully registered for {event.title}.")
 
-    return redirect('event_detail', event_id=event.id)
+    return redirect('calendar')
+
+@login_required
+def unregister_for_event(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+
+    if request.user not in event.registered_users.all():
+        messages.warning(request, "You are not registered for this event.")
+    else:
+        event.registered_users.remove(request.user)
+        messages.success(request, f"You have successfully unregistered for {event.title}.")
+
+    return redirect('calendar')

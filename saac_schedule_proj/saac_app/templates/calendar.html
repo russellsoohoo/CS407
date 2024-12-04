@@ -23,7 +23,8 @@
                 <p><strong>Start:</strong> <span id="modalStart"></span></p>
                 <p><strong>End:</strong> <span id="modalEnd"></span></p>
                 <p><strong>Location:</strong> <span id="modalLocation"></span></p>
-
+                <button id="registerButton">Register</button>
+                <button id="unregisterButton">Unregister</button>
             </div>
         </div>
     </div>
@@ -34,6 +35,7 @@
             var modal = document.getElementById("eventModal");
             var modal_overlay = document.getElementById("modalOverlay");
             var span = document.getElementsByClassName("close")[0];
+            var registerButton = document.getElementById("registerButton");
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth', // view calendar in month view
@@ -53,6 +55,60 @@
                     document.getElementById("modalEnd").innerText = info.event.end.toLocaleString();
                     document.getElementById("modalLocation").innerText = info.event.extendedProps.loc;
 
+                    // Get the event ID
+                    var eventId = info.event.id;
+                    // Check if user is already registered
+                    var registeredUsers = info.event.extendedProps.registered_users;
+                    if (registeredUsers.includes({{ user.id }})) {
+                        //registerButton.style.display = 'none'; // Hide button if already registered
+                        console.log("Already registered!")
+                    } else {
+                        //registerButton.style.display = 'block'; // Show register button
+                        console.log("Not registered yet!")
+                    }
+
+                    // Event register button
+                    registerButton.onclick = function() {
+                        // Send an AJAX request to register for the event
+                        fetch(`/events/${eventId}/register/`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': '{{ csrf_token }}'  // CSRF token for the request
+                            },
+                            body: JSON.stringify({
+                                'event_id': eventId
+                            })
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                alert('You have successfully registered for the event!');
+                            } else {
+                                alert('Registration failed. Please try again.');
+                            }
+                        })
+                        .catch(error => console.error('Error registering for event:', error));
+                    };
+
+                    // Event unregister button
+                    unregisterButton.onclick = function() {
+                        fetch(`/events/${eventId}/unregister/`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': '{{ csrf_token }}'
+                            },
+                            body: JSON.stringify({ 'event_id': eventId })
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                alert('You have successfully unregistered from the event!');
+                            } else {
+                                alert('Unregistration failed. Please try again.');
+                            }
+                        })
+                        .catch(error => console.error('Error unregistering from event:', error));
+                    };
                     // Show the modal
                     modal.style.display = "block";
                     modal_overlay.style.display = "flex";

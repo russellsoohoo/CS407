@@ -20,11 +20,11 @@ class Event(models.Model):
     end = models.DateTimeField(default=timezone.now)  # end date of event
     location = models.CharField(max_length=100, default="TBD")  # location of event
     subcommittee = models.CharField(max_length=20, choices=SUBCOMMITTEES)  # subcommittee of event
-    '''registered_users = models.ManyToManyField(
+    registered_users = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         related_name='registered_events',
         blank=True
-    )'''
+    )
 
     def __str__(self):
         return self.title
