@@ -5,7 +5,7 @@
     <title>Profile Page</title>
 </head>
 <body>
-    <h1>This is the User's profile page</h1>
+    <h1>Profile Page</h1>
     <form method="post" action="{% url 'calendar' %}">
         {% csrf_token %}
         <button type="submit">View Calendar</button>
@@ -15,11 +15,22 @@
         {% csrf_token %}
         <button type="submit">Log Out</button>
     </form>
+    <p></p>
+    {% if user.is_superuser %}
+    <a href="{% url 'admin:index' %}">
+      <button>Go to Admin</button>
+    </a>
+    {% endif %}
 
     <h2>Your Registered Events</h2>
     <ul>
-        {% for event in user.registered_events.all %}
-            <li>{{ event.name }} on {{ event.date }} at {{ event.time }}</li>
+        {% for event in registered_events %}
+            <li>
+                <strong>{{ event.title }}</strong><br>
+                <em>{{ event.start|date:"F j, Y, H:i" }} - {{ event.end|date:"F j, Y, H:i" }}</em><br>
+                <em>Location: {{ event.location }}</em>
+            </li>
+
         {% empty %}
             <p>You have not registered for any events.</p>
         {% endfor %}

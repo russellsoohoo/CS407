@@ -59,13 +59,13 @@
                     var eventId = info.event.id;
                     // Check if user is already registered
                     var registeredUsers = info.event.extendedProps.registered_users;
-                    if (registeredUsers.includes({{ user.id }})) {
+                    /*if (registeredUsers.includes({{ user.id }})) {
                         //registerButton.style.display = 'none'; // Hide button if already registered
                         console.log("Already registered!")
                     } else {
                         //registerButton.style.display = 'block'; // Show register button
                         console.log("Not registered yet!")
-                    }
+                    }*/
 
                     // Event register button
                     registerButton.onclick = function() {

@@ -25,6 +25,9 @@ def home(request):
 @login_required
 def profile(request):
     user = request.user
+
+    registered_events = user.registered_events.all()
+
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=user)
         password_form = PasswordChangeForm(request.POST)
@@ -56,6 +59,7 @@ def profile(request):
     context = {
         'user_form': user_form,
         'password_form': password_form,
+        'registered_events': registered_events
     }
     return render(request, 'profile.html', context)
 

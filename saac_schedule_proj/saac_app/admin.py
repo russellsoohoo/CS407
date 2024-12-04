@@ -4,6 +4,10 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 
 
+class RegisteredEventInline(admin.TabularInline):
+    model = Event.registered_users.through
+
+
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
     list_display = ['email', 'first_name', 'last_name', 'sport', 'grad_year', 'is_staff', 'is_active']
@@ -19,9 +23,11 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {'classes': ('wide',),
                 'fields': (
-                'email', 'password1', 'password2', 'first_name', 'last_name', 'sport', 'grad_year', 'is_active',
-                'is_staff')}),
+                    'email', 'password1', 'password2', 'first_name', 'last_name', 'sport', 'grad_year', 'is_active',
+                    'is_staff')}),
     )
+
+    inlines = [RegisteredEventInline]
 
 
 class EventAdmin(admin.ModelAdmin):
@@ -32,6 +38,7 @@ class EventAdmin(admin.ModelAdmin):
     # Add a method to display the registered users in the list view
     def get_registered_users(self, obj):
         return ", ".join([str(user) for user in obj.registered_users.all()])
+
     get_registered_users.short_description = 'Registered Users'
 
     # You can also customize the form for adding/editing the event to show the ManyToMany field
